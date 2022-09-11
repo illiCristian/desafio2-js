@@ -18,7 +18,7 @@ const fCalcular = () => {
   monto = validarNumero(monto, 1, 100000, mensajeMonto);
 
   let menu = parseFloat(prompt("Ingrese solo el numero de cada opcion \n 1- Pago en efectivo (10% descuento) \n 2- Tarjeta en 1 pago (sin recargo)\n 3- Tarjeta en cuotas con o sin intereses"));
-  let mensajeMenu = `Tiene que ingresar un numero entre 1 y 4`;
+  let mensajeMenu = `Tiene que ingresar un numero entre 1 y 3`;
   menu = validarNumero(menu, 1, 3, mensajeMenu);
 
   switch (menu) {
@@ -32,43 +32,25 @@ const fCalcular = () => {
       alert(mensaje2);
       break;
     case 3:
-      let opcion2 = parseFloat(
-        prompt(
-          "(Opcion 1) - Ahora 12 / Cuotas sin intereses \n (Opcion 2) - 2 Cuotas 10% de recargo \n (Opcion 3) - 3 Cuotas 15% de recargo \n (Opcion 4) - 6 Cuotas 30 % de recargo"
-        )
-      );
+      let opcion2 = parseFloat(prompt("(Opcion 1) - Ahora 12 / Cuotas sin intereses \n (Opcion 2) - 2 Cuotas 10% de recargo \n (Opcion 3) - 3 Cuotas 15% de recargo \n (Opcion 4) - 6 Cuotas 30 % de recargo"));
       let mensaje3 = `Tienes que ingresar un numero del 1 al 4`,
         csi = "";
       opcion2 = validarNumero(opcion2, 1, 4, mensaje3);
       switch (opcion2) {
         case 1:
-          csi = `El monto:$ ${monto} queda en 12 cuotas de:$ ${(
-            monto / 12
-          ).toFixed(2)} `;
+          csi = `El monto:$ ${monto} queda en 12 cuotas de:$ ${(monto / 12).toFixed(2)} `;
           alert(csi);
           break;
         case 2:
-          csi = `El monto:$ ${monto} con 10% de recargo, queda en 2 cuotas de :$ ${calcularIntereses(
-            monto,
-            0.1,
-            2
-          )} `;
+          csi = `El monto:$ ${monto} con 10% de recargo, queda en 2 cuotas de :$ ${calcularIntereses(monto,0.1,2)} `;
           alert(csi);
           break;
         case 3:
-          csi = `El monto:$ ${monto} con 15% de recargo, queda en 3 cuotas de :$ ${calcularIntereses(
-            monto,
-            0.15,
-            3
-          )} `;
+          csi = `El monto:$ ${monto} con 15% de recargo, queda en 3 cuotas de :$ ${calcularIntereses(monto,0.15,3)} `;
           alert(csi);
           break;
         case 4:
-          csi = `El monto:$ ${monto} con 30% de recargo, queda en 6 cuotas de :$ ${calcularIntereses(
-            monto,
-            0.3,
-            6
-          )} `;
+          csi = `El monto:$ ${monto} con 30% de recargo, queda en 6 cuotas de :$ ${calcularIntereses(monto,0.3,6)} `;
           alert(csi);
           break;
       }
